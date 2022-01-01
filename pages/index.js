@@ -97,13 +97,15 @@ export default function Home({ urls }) {
                     href={`${
                       process.env.NEXT_PUBLIC_SHORT_URL ??
                       process.env.NEXT_PUBLIC_VERCEL_URL
-                    }/${url.short_url}`}
+                    }/s/${url.short_url}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-400 hover:text-blue-500"
                   >
                     {process.env.NEXT_PUBLIC_SHORT_URL ??
-                      process.env.NEXT_PUBLIC_VERCEL_URL + "/" + url.short_url}
+                      process.env.NEXT_PUBLIC_VERCEL_URL +
+                        "/s/" +
+                        url.short_url}
                   </a>
                 </p>
               </div>
