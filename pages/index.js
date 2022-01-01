@@ -96,7 +96,7 @@ export default function Home({ urls }) {
                   <a
                     href={`${
                       process.env.NEXT_PUBLIC_SHORT_URL ??
-                      process.env.NEXT_PUBLIC_VERCEL_URL
+                      "https://" + process.env.NEXT_PUBLIC_VERCEL_URL
                     }/s/${url.short_url}`}
                     target="_blank"
                     rel="noopener noreferrer"
