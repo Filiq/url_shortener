@@ -7,7 +7,7 @@ export default async function add(req, res) {
   let url = req.body.url;
 
   if (!isValidUrl(url)) {
-    return res.status(403).json({ error: true, msg: "URL is not valid", url });
+    return res.status(403).json({ error: true, msg: "URL is not valid" });
   }
 
   url = url[url.length - 1] === "/" ? url.substr(0, url.length - 1) : url;
