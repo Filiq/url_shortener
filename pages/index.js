@@ -31,13 +31,19 @@ export default function Home({ urls }) {
       }
 
       navigator.clipboard.writeText(
-        process.env.NEXT_PUBLIC_SHORT_URL ??
-          NEXT_PUBLIC_VERCEL_URL + "/" + data.short_url
+        process.env.NEXT_PUBLIC_SHORT_URL
+          ? process.env.NEXT_PUBLIC_SHORT_URL + `/s/${data.short_url}`
+          : "https://" +
+              process.env.NEXT_PUBLIC_VERCEL_URL +
+              `/s/${data.short_url}`
       );
 
       setUrl(
-        process.env.NEXT_PUBLIC_SHORT_URL ??
-          NEXT_PUBLIC_VERCEL_URL + "/" + data.short_url
+        process.env.NEXT_PUBLIC_SHORT_URL
+          ? process.env.NEXT_PUBLIC_SHORT_URL + `/s/${data.short_url}`
+          : "https://" +
+              process.env.NEXT_PUBLIC_VERCEL_URL +
+              `/s/${data.short_url}`
       );
 
       toast.info("Link has been copied to clipboard");
@@ -94,18 +100,23 @@ export default function Home({ urls }) {
                 <p className="min-w-[25rem] border-b">
                   Short:{" "}
                   <a
-                    href={`${
-                      process.env.NEXT_PUBLIC_SHORT_URL ??
-                      "https://" + process.env.NEXT_PUBLIC_VERCEL_URL
-                    }/s/${url.short_url}`}
+                    href={
+                      process.env.NEXT_PUBLIC_SHORT_URL
+                        ? process.env.NEXT_PUBLIC_SHORT_URL +
+                          `/s/${url.short_url}`
+                        : "https://" +
+                          process.env.NEXT_PUBLIC_VERCEL_URL +
+                          `/s/${url.short_url}`
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-400 hover:text-blue-500"
                   >
-                    {process.env.NEXT_PUBLIC_SHORT_URL ??
-                      process.env.NEXT_PUBLIC_VERCEL_URL +
-                        "/s/" +
-                        url.short_url}
+                    {process.env.NEXT_PUBLIC_SHORT_URL
+                      ? process.env.NEXT_PUBLIC_SHORT_URL +
+                        `/s/${url.short_url}`
+                      : process.env.NEXT_PUBLIC_VERCEL_URL +
+                        `/s/${url.short_url}`}
                   </a>
                 </p>
               </div>
